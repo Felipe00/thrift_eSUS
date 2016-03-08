@@ -45,6 +45,33 @@ public class ZipWriterExemplo {
 			// }
 		}
 	}
+	
+	public static void generateZip(DadoTransporteThrift thrift, String filePath) {
+		File zipFile = new File(filePath);
+		ZipOutputStream outputStream = null;
+
+		try {
+			outputStream = new ZipOutputStream(new FileOutputStream(zipFile));
+		} catch (FileNotFoundException e2) {
+			e2.printStackTrace();
+		}
+
+		if (outputStream != null) {
+			// for (DadoTransporteThrift thrift : dadoTransporteThrift) {
+			try {
+				String entryName = resolveZipEntry(thrift);
+				outputStream.putNextEntry(new ZipEntry(entryName));
+				byte[] data = ThriftSerializer.serialize(thrift);
+				outputStream.write(data);
+
+				outputStream.closeEntry();
+				outputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			// }
+		}
+	}
 
 	/**
 	 * Determina o nome e a extensão das entradas do arquivo .zip
@@ -53,7 +80,7 @@ public class ZipWriterExemplo {
 	 * @return o nome da entrada no arquivo .zip
 	 */
 	private static String resolveZipEntry(DadoTransporteThrift thrift) {
-		String entryName = thrift.getTipoDadoSerializado() + "";
+		String entryName = thrift.getTipoDadoSerializado() + "_" + thrift.getUuidDadoSerializado() + EXTENSAO_EXPORT_V13;
 
 		// Realizar os testes de tipos e escolher qual o nome de cada entrada do arquivo zip gerado;
 		if (thrift.getTipoDadoSerializado() == 7) { // Thrift Procedimentos;
