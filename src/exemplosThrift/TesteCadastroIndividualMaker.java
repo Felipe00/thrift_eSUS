@@ -56,14 +56,15 @@ public class TesteCadastroIndividualMaker {
 	
 	public static void inicializaDados() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		String uuiFicha = "172340" + UUID.randomUUID() + "";
+		String uuiFicha = "5444428" + UUID.randomUUID() + "";
 		VersaoThrift versaoThrift = new VersaoThrift(2, 0, 0);
 		List<Long> deficiencias = new ArrayList<Long>();
+		List<Long> doencas = new ArrayList<Long>();
 		byte[] dadoSerializado;
 		
 		
 		informacoesEnvio.setUuidDadoSerializado(uuiFicha);
-		informacoesEnvio.setCodIbge("2931350");
+		informacoesEnvio.setCodIbge("4205407");
 		informacoesEnvio.setTipoDadoSerializado(2l);
 		informacoesEnvio.setVersao(versaoThrift);
 		informacoesEnvio.setIneDadoSerializado("268224");
@@ -73,27 +74,28 @@ public class TesteCadastroIndividualMaker {
 		cadastroIndividual.setFichaAtualizada(false);
 		cadastroIndividual.setStatusTermoRecusaCadastroIndividualAtencaoBasica(false);
 		
-		dadosGerais.setCnsProfissional("980016279446897");
-		dadosGerais.setCnesUnidadeSaude("172340");
-		dadosGerais.setIneEquipe("268224");
-		dadosGerais.setCodigoIbgeMunicipio("2931350");
+		dadosGerais.setCnsProfissional("708407713297266");
+		dadosGerais.setCnesUnidadeSaude("5444428");
+		dadosGerais.setIneEquipe("1382855330");
+		dadosGerais.setCodigoIbgeMunicipio("4205407");
 		try {
-			dadosGerais.setDataAtendimento(sdf.parse("08/12/2009 15:24:35").getTime());
+			dadosGerais.setDataAtendimento(sdf.parse("21/01/2016 15:24:35").getTime());
 		} catch (ParseException e) {
 			System.out.println("Problemas na data.");
 			e.printStackTrace();
 		}
 		
-		identificacaoUsuarioCidadao.setNumeroCartaoSus("203475247580005");
+		identificacaoUsuarioCidadao.setNumeroCartaoSus("127984422070002");
 		identificacaoUsuarioCidadao.setStatusEhResponsavel(true);
-		identificacaoUsuarioCidadao.setNomeCidadao("MARILEIA DE SOUZA SANTANA");
-		identificacaoUsuarioCidadao.setNomeSocialCidadao("LEIA");
-		identificacaoUsuarioCidadao.setRacaCorCidadao(4l);
+		identificacaoUsuarioCidadao.setNomeCidadao("MARIA CÂNDIDA DA SILVA");
+		identificacaoUsuarioCidadao.setNomeSocialCidadao("MARIA");
+		identificacaoUsuarioCidadao.setRacaCorCidadao(1l);
 		identificacaoUsuarioCidadao.setSexoCidadao(1l);
-		identificacaoUsuarioCidadao.setNomeMaeCidadao("MRIA");
+		identificacaoUsuarioCidadao.setNomeMaeCidadao("SILVIA CÂNDIDA DA SILVA");
 		identificacaoUsuarioCidadao.setDesconheceNomeMae(false);
 		identificacaoUsuarioCidadao.setNacionalidadeCidadao(1l);
-		identificacaoUsuarioCidadao.setCodigoIbgeMunicipioNascimento("2915601");
+		identificacaoUsuarioCidadao.setCodigoIbgeMunicipioNascimento("4314902");
+		identificacaoUsuarioCidadao.setPaisNascimento(31);
 		try {
 			identificacaoUsuarioCidadao.setDataNascimentoCidadao(sdf.parse("19/02/1999 00:00:00").getTime());
 		} catch (ParseException e) {
@@ -101,20 +103,89 @@ public class TesteCadastroIndividualMaker {
 			e.printStackTrace();
 		}
 		
-		informacoesSocioDemograficas.setStatusFrequentaEscola(false);
-		informacoesSocioDemograficas.setSituacaoMercadoTrabalhoCidadao(68l);
-		informacoesSocioDemograficas.setGrauInstrucaoCidadao(51l);
+		informacoesSocioDemograficas.setRelacaoParentescoCidadao(141);
+		informacoesSocioDemograficas.setOcupacaoCodigoCbo2002("312320");
+		informacoesSocioDemograficas.setStatusFrequentaEscola(true);
+		informacoesSocioDemograficas.setGrauInstrucaoCidadao(60l);
 		informacoesSocioDemograficas.setResponsavelPorCrianca(1l);
 		informacoesSocioDemograficas.setStatusFrequentaBenzedeira(true);
 		informacoesSocioDemograficas.setStatusPossuiPlanoSaudePrivado(true);
 		informacoesSocioDemograficas.setStatusDesejaInformarOrientacaoSexual(true);
-		informacoesSocioDemograficas.setOrientacaoSexualCidadao(6l);
+		informacoesSocioDemograficas.setOrientacaoSexualCidadao(5l);
 		informacoesSocioDemograficas.setMotivoSaidaCidadao(136l);
 		informacoesSocioDemograficas.setStatusTemAlgumaDeficiencia(true);
 		deficiencias.add(12l);
+		deficiencias.add(13l);
+		deficiencias.add(14l);
+		deficiencias.add(15l);
+		deficiencias.add(16l);
 		informacoesSocioDemograficas.setDeficienciasCidadao(deficiencias);
 		
-		emSituacaoDeRua.setStatusSituacaoRua(false);		
+		condicoesDeSaude.setStatusEhGestante(true);
+		condicoesDeSaude.setMaternidadeDeReferencia("carmela dutra");
+		condicoesDeSaude.setSituacaoPeso(22l);
+		condicoesDeSaude.setStatusEhFumante(true);
+		condicoesDeSaude.setStatusEhDependenteAlcool(false);
+		condicoesDeSaude.setStatusEhDependenteOutrasDrogas(true);
+		condicoesDeSaude.setStatusTemHipertensaoArterial(false);
+		condicoesDeSaude.setStatusTemDiabetes(true);
+		condicoesDeSaude.setStatusTeveAvcDerrame(true);
+		condicoesDeSaude.setStatusTeveInfarto(true);
+		condicoesDeSaude.setStatusTeveDoencaCardiaca(true);
+		doencas.add(24l);
+		doencas.add(25l);
+		doencas.add(26l);
+		condicoesDeSaude.setDoencaCardiaca(doencas);
+		doencas.clear();
+		condicoesDeSaude.setStatusTemTeveDoencasRins(true);
+		doencas.add(27l);
+		doencas.add(28l);
+		doencas.add(29l);
+		condicoesDeSaude.setDoencaRins(doencas);
+		doencas.clear();
+		condicoesDeSaude.setStatusTemDoencaRespiratoria(true);
+		doencas.add(30l);
+		doencas.add(31l);
+		doencas.add(32l);
+		doencas.add(33l);
+		condicoesDeSaude.setDoencaRespiratoria(doencas);
+		condicoesDeSaude.setStatusTemTeveCancer(false);
+		condicoesDeSaude.setStatusTemHanseniase(false);
+		condicoesDeSaude.setStatusTemTuberculose(false);
+		condicoesDeSaude.setStatusTeveInternadoEm12Meses(true);
+		condicoesDeSaude.setDescricaoCausaInternacaoEm12Meses("pneumonia");
+		condicoesDeSaude.setStatusTratamentoPsiquicoOuProblemaMental(false);
+		condicoesDeSaude.setStatusEstaAcamado(true);
+		condicoesDeSaude.setStatusEstaDomiciliado(false);
+		condicoesDeSaude.setStatusUsaPlantaMedicinais(true);
+		condicoesDeSaude.setDescricaoPlantasMedicinaisUsadas("erva mate");
+		condicoesDeSaude.setStatusUsaOutrasPraticasIntegrativasOuComplementares(true);
+		condicoesDeSaude.setDescricaoOutraCondicao1("condição 1");
+		condicoesDeSaude.setDescricaoOutraCondicao2("condicao 2");
+		condicoesDeSaude.setDescricaoOutraCondicao3("condicao 3");
+		
+		emSituacaoDeRua.setQuantidadeAlimentacoesAoDiaSituacaoRua(35);
+		deficiencias.clear();
+		deficiencias.add(37l);
+		deficiencias.add(38l);
+		deficiencias.add(39l);
+		deficiencias.add(40l);
+		deficiencias.add(41l);
+		emSituacaoDeRua.setOrigemAlimentoSituacaoRua(deficiencias);
+		emSituacaoDeRua.setStatusTemAcessoHigienePessoalSituacaoRua(true);
+		deficiencias.clear();
+		deficiencias.add(42l);
+		deficiencias.add(43l);
+		deficiencias.add(44l);
+		deficiencias.add(45l);
+		emSituacaoDeRua.setStatusSituacaoRua(true);
+		emSituacaoDeRua.setTempoSituacaoRua(18l);
+		emSituacaoDeRua.setStatusAcompanhadoPorOutraInstituicao(true);
+		emSituacaoDeRua.setOutraInstituicaoQueAcompanha("ufsc");
+		emSituacaoDeRua.setStatusRecebeBeneficio(true);
+		emSituacaoDeRua.setStatusPossuiReferenciaFamiliar(true);
+		emSituacaoDeRua.setStatusVisitaFamiliarFrequentemente(true);
+		emSituacaoDeRua.setGrauParentescoFamiliarFrequentado("mãe");
 		
 		cadastroIndividual.setUuid(uuiFicha);
 		cadastroIndividual.setTpCdsOrigem(3);
